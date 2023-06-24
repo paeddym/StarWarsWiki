@@ -1,7 +1,7 @@
 <template>
     <div>
-      <h1>Star Wars Suche</h1>
-      <input type="text" v-model="searchQuery" placeholder="Nach Charakteren, Planeten, Fahrzeugen, Raumschiffen oder Spezies suchen">
+      <h1>Suche</h1>
+      <input type="text" v-model="searchQuery" placeholder="Search">
       <ul>
         <li v-for="result in filteredResults" :key="result.name">
           <h3>{{ result.name }}</h3>

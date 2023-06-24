@@ -34,9 +34,9 @@ const router = createRouter({
       component: () => import('../components/Species.vue')
     },
     {
-      path: '/Searchbar',
-      name: 'Searchbar',
-      component: () => import('../components/Searchbar.vue')
+      path: '/Search',
+      name: 'Search',
+      component: () => import('../components/Search.vue')
     }
   ]
 })

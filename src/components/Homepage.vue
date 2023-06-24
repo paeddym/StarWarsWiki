@@ -1,7 +1,7 @@
 <template>
     <div>
       <h1 class="title">The Star Wars WIKI</h1>
-      <RouterLink to="/Searchbar">Back to Homepage</RouterLink>
+      <RouterLink to="/Search">To the Search</RouterLink>
     </div>
   </template>
   
