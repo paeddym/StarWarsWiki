@@ -6,8 +6,8 @@
           {{ character.name }}
         </li>
       </ul>
-      <button @click="loadPreviousPage">Previous Page</button>
-      <button @click="loadNextPage">Next Page</button>
+      <button @click="loadPreviousPeople">Previous Page</button>
+      <button @click="loadNextPeople">Next Page</button>
     </div>
   </template>
   
@@ -36,7 +36,7 @@
             console.error(error);
           });
       },
-      loadNextPage(){
+      loadNextPeople(){
         if (this.nextPage) {
         axios.get(this.nextPage)
           .then(response => {
@@ -49,7 +49,7 @@
           });
         }
       },
-      loadPreviousPage(){
+      loadPreviousPeople(){
         if (this.previousPage) {
         axios.get(this.previousPage)
           .then(response => {
@@ -67,8 +67,5 @@
   </script>
 
   <style scoped>
-  button {
-    background-color: black;
-    color: yellow;
-  }
+  
 </style>
