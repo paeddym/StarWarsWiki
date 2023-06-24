@@ -6,6 +6,8 @@
           {{ character.name }}
         </li>
       </ul>
+      <button @click="loadPreviousPage">Previous Page</button>
+      <button @click="loadNextPage">Next Page</button>
     </div>
   </template>
   
@@ -30,6 +32,32 @@
           .catch(error => {
             console.error(error);
           });
+      },
+      loadNextPage(){
+        if (this.nextPage) {
+        axios.get(this.nextPage)
+          .then(response => {
+            this.people = response.data.results;
+            this.nextPage = response.data.next;
+            this.previousPage = response.data.previous;
+          })
+          .catch(error => {
+            console.error(error);
+          });
+        }
+      },
+      loadPreviousPage(){
+        if (this.previousPage) {
+        axios.get(this.previousPage)
+          .then(response => {
+            this.people = response.data.results;
+            this.nextPage = response.data.next;
+            this.previousPage = response.data.previous;
+          })
+          .catch(error => {
+            console.error(error);
+          });
+        }
       }
     }
   };
