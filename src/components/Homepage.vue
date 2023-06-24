@@ -3,7 +3,6 @@
       <h1 class="title">Willkommen zur Star Wars Homepage</h1>
       <div class="content">
         <p class="intro">Möge die Macht mit dir sein!</p>
-        <img class="logo" src="./assets/star-wars-logo.png" alt="Star Wars Logo">
         <router-link class="button" to="/People">Discover People</router-link>
       </div>
     </div>

@@ -24,5 +24,6 @@ import { RouterLink, RouterView } from 'vue-router'
 <style scoped>
 * {
   background-color: yellow;
+  color: black;
 }
 </style>

@@ -6,7 +6,6 @@
           {{ character.name }}
         </li>
       </ul>
-      <button @click="fetchSpecies">Load Species</button>
     </div>
   </template>
   
@@ -18,6 +17,9 @@
       return {
         characters: []
       };
+    },
+    mounted(){
+      this.fetchSpecies();
     },
     methods: {
       fetchSpecies() {
