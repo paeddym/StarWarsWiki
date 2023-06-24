@@ -4,9 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-
-    <div class="wrapper">
-
+    <div>
       <nav>
         <RouterLink to="/">Back to Homepage</RouterLink>
         <RouterLink to="/People">People</RouterLink>
@@ -22,8 +20,16 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
-* {
+header {
+  height: 100%;
+  width: 100%;
+  background-color: gray;
+}
+nav {
   background-color: yellow;
   color: black;
+}
+nav * {
+  margin: 1em;
 }
 </style>
