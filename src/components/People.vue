@@ -7,7 +7,7 @@
         </li>
       </ul>
       <button @click="loadPreviousPeople">Previous Page</button>
-      <button @click="loadNextPeople">Next Page</button>
+      <button @click="loadMorePeople">Next Page</button>
     </div>
   </template>
   
@@ -36,7 +36,7 @@
             console.error(error);
           });
       },
-      loadNextPeople(){
+      loadMorePeople(){
         if (this.nextPage) {
         axios.get(this.nextPage)
           .then(response => {

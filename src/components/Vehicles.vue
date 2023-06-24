@@ -1,65 +1,68 @@
 <template>
-    <div>
-      <h1>Vehicles</h1>
-      <ul>
-        <li v-for="character in characters" :key="character.name">
-          {{ character.name }}
-        </li>
-      </ul>
-      <button @click="loadPreviousPage">Previous Page</button>
-      <button @click="loadNextPage">Next Page</button>
-    </div>
-  </template>
-  
-  <script>
-  import axios from 'axios';
-  
-  export default {
-    data() {
-      return {
-        characters: []
-      };
+  <div>
+    <h1>Vehicles</h1>
+    <ul>
+      <li v-for="vehicle in vehicles" :key="vehicle.name">
+        {{ vehicle.name }}
+      </li>
+    </ul>
+    <button @click="loadPreviousVehicles">Previous Page</button>
+    <button @click="loadMoreVehicles">Next Page</button>
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      vehicles: [],
+      nextPage: null,
+      previousPage: null
+    };
+  },
+  mounted() {
+    this.fetchVehicles();
+  },
+  methods: {
+    fetchVehicles() {
+      axios.get('https://swapi.dev/api/vehicles/')
+        .then(response => {
+          this.vehicles = response.data.results;
+          this.nextPage = response.data.next;
+          this.previousPage = response.data.previous;
+        })
+        .catch(error => {
+          console.error(error);
+        });
     },
-    mounted(){
-      this.fetchVehicles();
-    },
-    methods: {
-      fetchVehicles() {
-        axios.get('https://swapi.dev/api/vehicles/')
-          .then(response => {
-            this.characters = response.data.results;
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      },
-      loadNextPage(){
-        if (this.nextPage) {
+    loadMoreVehicles() {
+      if (this.nextPage) {
         axios.get(this.nextPage)
           .then(response => {
-            this.people = response.data.results;
+            this.vehicles = response.data.results;
             this.nextPage = response.data.next;
             this.previousPage = response.data.previous;
           })
           .catch(error => {
             console.error(error);
           });
-        }
-      },
-      loadPreviousPage(){
-        if (this.previousPage) {
+      }
+    },
+    loadPreviousVehicles() {
+      if (this.previousPage) {
         axios.get(this.previousPage)
           .then(response => {
-            this.people = response.data.results;
+            this.vehicles = response.data.results;
             this.nextPage = response.data.next;
             this.previousPage = response.data.previous;
           })
           .catch(error => {
             console.error(error);
           });
-        }
       }
     }
-  };
-  </script>
-  
+  }
+};
+</script>
