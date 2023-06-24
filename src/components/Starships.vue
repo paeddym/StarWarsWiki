@@ -7,6 +7,7 @@
       </li>
     </ul>
     <button @click="loadPreviousStarships">Previous Page</button>
+    <p id="pageCount" >Page: {{ currentPage }}</p>
     <button @click="loadMoreStarships">Next Page</button>
   </div>
 </template>
@@ -19,7 +20,8 @@ export default {
     return {
       starships: [],
       nextPage: null,
-      previousPage: null
+      previousPage: null,
+      currentPage: 1
     };
   },
   mounted() {
@@ -44,6 +46,7 @@ export default {
             this.starships = response.data.results;
             this.nextPage = response.data.next;
             this.previousPage = response.data.previous;
+            this.currentPage ++;
           })
           .catch(error => {
             console.error(error);
@@ -57,6 +60,7 @@ export default {
             this.starships = response.data.results;
             this.nextPage = response.data.next;
             this.previousPage = response.data.previous;
+            this.currentPage --;
           })
           .catch(error => {
             console.error(error);

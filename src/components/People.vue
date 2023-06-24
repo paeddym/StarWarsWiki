@@ -7,6 +7,7 @@
         </li>
       </ul>
       <button @click="loadPreviousPeople">Previous Page</button>
+      <p id="pageCount" >Page: {{ currentPage }}</p>
       <button @click="loadMorePeople">Next Page</button>
     </div>
   </template>
@@ -18,7 +19,9 @@
     data() {
       return {
         people: [],
-        nextPage: null
+        nextPage: null,
+        previousPage: null,
+        currentPage: 1
       };
     },
     mounted(){
@@ -43,6 +46,7 @@
             this.people = response.data.results;
             this.nextPage = response.data.next;
             this.previousPage = response.data.previous;
+            this.currentPage ++;
           })
           .catch(error => {
             console.error(error);
@@ -56,6 +60,7 @@
             this.people = response.data.results;
             this.nextPage = response.data.next;
             this.previousPage = response.data.previous;
+            this.currentPage --;
           })
           .catch(error => {
             console.error(error);

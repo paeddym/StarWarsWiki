@@ -15,21 +15,25 @@ import { RouterLink, RouterView } from 'vue-router'
       </nav>
     </div>
   </header>
-
+  <body>
   <RouterView />
+  </body>
 </template>
 
 <style scoped>
 header {
-  height: 100%;
   width: 100%;
   background-color: gray;
+  position: absolute;
+}
+body {
+  width: 100%;
 }
 nav {
   background-color: yellow;
-  color: black;
 }
 nav * {
   margin: 1em;
+  color: black;
 }
 </style>
