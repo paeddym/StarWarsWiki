@@ -6,7 +6,6 @@
           {{ character.name }}
         </li>
       </ul>
-      <button @click="fetchVehicles">Load Vehicles</button>
     </div>
   </template>
   
@@ -18,6 +17,9 @@
       return {
         characters: []
       };
+    },
+    mounted(){
+      this.fetchVehicles();
     },
     methods: {
       fetchVehicles() {
