@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="listOfEntries">
     <h1>Spaceships</h1>
     <ul>
       <li v-for="starship in starships" :key="starship.name">

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="listOfEntries">
     <h1>Suche</h1>
     <input type="text" v-model="searchQuery" placeholder="Search">
     <ul v-if="showResults">

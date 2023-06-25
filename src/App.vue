@@ -24,9 +24,11 @@ import { RouterLink, RouterView } from 'vue-router'
 
 nav {
   background-color: yellow;
+  text-align: center;
 }
 nav * {
-  margin: 1em;
+  margin: 5em;
   color: black;
 }
+
 </style>

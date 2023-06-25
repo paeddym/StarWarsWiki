@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="listOfEntries">
     <h1>Vehicles</h1>
     <ul>
       <li v-for="vehicle in vehicles" :key="vehicle.name">

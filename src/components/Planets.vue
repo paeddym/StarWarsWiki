@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="listOfEntries">
     <h1>Star Wars Planeten</h1>
     <ul>
       <li v-for="planet in planets" :key="planet.name">
