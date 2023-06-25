@@ -6,9 +6,11 @@
         {{ vehicle.name }}
       </li>
     </ul>
-    <button @click="loadPreviousVehicles">Previous Page</button>
-    <p id="pageCount" >Page: {{ currentPage }}</p>
-    <button @click="loadMoreVehicles">Next Page</button>
+    <div class="pageTurner">
+      <button @click="loadPreviousVehicles">Previous Page</button>
+      <p id="pageCount" >{{ currentPage }}</p>
+      <button @click="loadMoreVehicles">Next Page</button>
+    </div>
   </div>
 </template>
 

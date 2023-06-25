@@ -6,9 +6,11 @@
         {{ planet.name }}
       </li>
     </ul>
-    <button @click="loadPreviousPlanets">Previous Page</button>
-    <p id="pageCount" >Page: {{ currentPage }}</p>
-    <button @click="loadMorePlanets">Next Page</button>
+    <div class="pageTurner">
+      <button @click="loadPreviousPlanets">Previous Page</button>
+      <p id="pageCount" >{{ currentPage }}</p>
+      <button @click="loadMorePlanets">Next Page</button>
+    </div>
   </div>
 </template>
 

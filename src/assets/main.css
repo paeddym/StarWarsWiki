@@ -20,6 +20,11 @@
   line-height: 2em;
 }
 
+.pageTurner > * {
+  display: inline-block;
+  margin: 1em;
+}
+
 @media (min-width: 1024px) {
   body {
     display: flex;

@@ -26,9 +26,11 @@ nav {
   background-color: yellow;
   text-align: center;
 }
+
 nav * {
   margin: 5em;
   color: black;
+  font-size: 1.3em;
 }
 
 </style>

@@ -6,9 +6,11 @@
         {{ starship.name }}
       </li>
     </ul>
-    <button @click="loadPreviousStarships">Previous Page</button>
-    <p id="pageCount" >Page: {{ currentPage }}</p>
-    <button @click="loadMoreStarships">Next Page</button>
+    <div class="pageTurner">
+      <button @click="loadPreviousStarships">Previous Page</button>
+      <p id="pageCount" >{{ currentPage }}</p>
+      <button @click="loadMoreStarships">Next Page</button>
+    </div>
   </div>
 </template>
 

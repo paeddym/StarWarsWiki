@@ -6,9 +6,11 @@
         {{ species.name }}
       </li>
     </ul>
-    <button @click="loadPreviousSpecies">Previous Page</button>
-    <p id="pageCount" >Page: {{ currentPage }}</p>
-    <button @click="loadMoreSpecies">Next Page</button>
+    <div class="pageTurner">
+      <button @click="loadPreviousSpecies">Previous Page</button>
+      <p id="pageCount" >{{ currentPage }}</p>
+      <button @click="loadMoreSpecies">Next Page</button>
+    </div>
   </div>
 </template>
 
