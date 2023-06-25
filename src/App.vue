@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <div>
+    <div id="navbar">
       <nav>
         <RouterLink to="/People">People</RouterLink>
         <RouterLink to="/Planets">Planets</RouterLink>

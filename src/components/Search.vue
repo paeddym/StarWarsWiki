@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <h1>Search</h1>
-    <input type="text" v-model="searchQuery" placeholder="Search">
-    <div v-if="isLoading">
+  <div id="search">
+    <h1 id="mainHeader">The Star Wars WIKI</h1>
+    <input type="text" v-model="searchQuery" placeholder="Search the WIKI">
+    <div id="centerLoadingBar" v-if="isLoading">
       Loading...
     </div>
     <ul v-else-if="showResults">
@@ -108,3 +108,47 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+
+h1 {
+  font-size: 4em;
+}
+
+#search {
+  width: 50%;
+  margin: auto;
+}
+
+ul {
+  position: absolute;
+  text-align: left;
+  left: 30%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  font-size: 1.3em;
+}
+
+#centerLoadingBar {
+  position: absolute;
+  left: 50%; 
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+::placeholder {
+  font-size: 2.5em;
+}
+
+input {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  width: 60%;
+  height: 10%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 1em;
+}
+
+</style>

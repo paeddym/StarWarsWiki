@@ -1,6 +1,6 @@
 <template>
   <div class="listOfEntries">
-    <h1>Star Wars Planeten</h1>
+    <h1>Planets</h1>
     <ul>
       <li v-for="planet in planets" :key="planet.name">
         {{ planet.name }}
