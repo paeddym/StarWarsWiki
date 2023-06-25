@@ -6,7 +6,7 @@ const router = createRouter({
     {                                                                 //Homepage
       path: '/',
       name: 'Home',
-      component: () => import('../components/Homepage.vue')
+      component: () => import('../components/Search.vue')
     },
     {
       path: '/People',
@@ -32,11 +32,6 @@ const router = createRouter({
       path: '/Species',
       name: 'Species',
       component: () => import('../components/Species.vue')
-    },
-    {
-      path: '/Search',
-      name: 'Search',
-      component: () => import('../components/Search.vue')
     }
   ]
 })
