@@ -21,13 +21,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
-header {
-  width: 100%;
-  background-color: gray;
-}
-body {
-  width: 100%;
-}
+
 nav {
   background-color: yellow;
 }
