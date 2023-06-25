@@ -1,14 +1,17 @@
 <template>
-  <div class="listOfEntries">
-    <h1>Suche</h1>
+  <div>
+    <h1>Search</h1>
     <input type="text" v-model="searchQuery" placeholder="Search">
-    <ul v-if="showResults">
+    <div v-if="isLoading">
+      Loading...
+    </div>
+    <ul v-else-if="showResults">
       <li v-for="result in filteredResults" :key="result.name">
         <h3>{{ result.name }}</h3>
         <p>{{ result.type }}</p>
       </li>
     </ul>
-    <p v-else>Noch keine Ergebnisse vorhanden.</p>
+    <p v-else></p>
   </div>
 </template>
 
@@ -19,7 +22,8 @@ export default {
   data() {
     return {
       searchQuery: '',
-      results: []
+      results: [],
+      isLoading: false
     };
   },
   computed: {
@@ -29,8 +33,11 @@ export default {
         .slice(0, 5);
     },
     showResults() {
-      return this.searchQuery.length > 0 && this.filteredResults.length > 0;
+      return this.searchQuery.length > 0 && this.results.length > 0;
     }
+  },
+  created() {
+    this.loadResources();
   },
   watch: {
     searchQuery() {
@@ -38,35 +45,42 @@ export default {
     }
   },
   methods: {
-    search() {
-      if (this.searchQuery.length === 1) {
-        axios.get('https://swapi.dev/api/')
-          .then(response => {
-            const resources = Object.keys(response.data)
-              .filter(key => key !== 'films')
-              .map(key => {
-                return {
-                  type: key.charAt(0).toUpperCase() + key.slice(1),
-                  endpoint: response.data[key]
-                };
-              });
-
-            this.results = [];
-
-            resources.forEach(resource => {
-              this.searchResource(resource.endpoint, resource.type);
+    loadResources() {
+      this.isLoading = true;
+      axios.get('https://swapi.dev/api/')
+        .then(response => {
+          const resources = Object.keys(response.data)
+            .filter(key => key !== 'films')
+            .map(key => {
+              return {
+                type: key.charAt(0).toUpperCase() + key.slice(1),
+                endpoint: response.data[key]
+              };
             });
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      }
+
+          const promises = resources.map(resource => this.searchResource(resource.endpoint, resource.type));
+
+          Promise.all(promises)
+            .then(() => {
+              this.isLoading = false;
+            })
+            .catch(error => {
+              console.error(error);
+              this.isLoading = false;
+            });
+        })
+        .catch(error => {
+          console.error(error);
+          this.isLoading = false;
+        });
+    },
+    search() {
+      // Perform any additional search functionality if needed
     },
     searchResource(endpoint, type) {
-      axios.get(endpoint)
+      return axios.get(endpoint)
         .then(response => {
           const results = response.data.results
-            .filter(result => result.name.toLowerCase().includes(this.searchQuery.toLowerCase()))
             .map(result => {
               return {
                 name: result.name,
@@ -77,7 +91,7 @@ export default {
           this.results = this.results.concat(results);
 
           if (response.data.next) {
-            this.searchResource(response.data.next, type);
+            return this.searchResource(response.data.next, type);
           }
         })
         .catch(error => {

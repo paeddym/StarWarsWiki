@@ -5,6 +5,16 @@
   background-image: url('/assets/background.jpg');
 }
 
+nav {
+  background-color: yellow;
+  text-align: center;
+}
+
+nav * {
+  color: black;
+  font-size: 1.3em;
+}
+
 .listOfEntries {
   width: 50%;
   margin: auto;
@@ -20,9 +30,13 @@
   line-height: 2em;
 }
 
+.pageTurner {
+  width: 50%;
+  margin: auto;
+}
+
 .pageTurner > * {
   display: inline-block;
-  margin: 1em;
 }
 
 @media (min-width: 1024px) {
