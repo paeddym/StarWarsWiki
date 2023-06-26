@@ -1,17 +1,17 @@
 <template>
-  <div>
+  <div id="search">
     <h1>The Star Wars WIKI</h1>
     <div>
       <input type="text" v-model="searchQuery" placeholder="Search">
-      <div id="centerLoadingBar" v-if="isLoading">
+      <div class="status" v-if="isLoading">
         Fetching API data...
       </div>
       <div v-else-if="showResults">
-        <div class="results-container">
-          <ul class="results-list">
+        <div>
+          <ul>
             <li v-for="result in filteredResults" :key="result.name">
               <h3 @click="toggleDetails(result)">{{ result.name }}</h3>
-              <div class="details" v-if="result.showDetails">
+              <div v-if="result.showDetails">
                 <p>Type: {{ result.type }}</p>
 
                 <template v-if="result.type === 'People'">
@@ -83,7 +83,7 @@
           </ul>
         </div>
       </div>
-      <p v-else>No results found.</p>
+      <p class="status" v-else>Ready to search!</p>
     </div>
   </div>
 </template>
@@ -352,8 +352,7 @@ li {
   transform: translate(-50%, -50%);
   font-size: 1.3em;
 }
-
-#centerLoadingBar {                   /* Text innendrinnen nicht Selektierbar? */
+.status {                   /* Text innendrinnen nicht Selektierbar? */
   position: relative;
   text-align: center;
   font-size: 1em;
