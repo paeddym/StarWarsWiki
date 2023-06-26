@@ -112,7 +112,8 @@ export default {
 <style scoped>
 
 h1 {
-  font-size: 4em;
+  font-size: 6em;
+  padding-top: 0.5em;
 }
 
 #search {
@@ -121,7 +122,7 @@ h1 {
 }
 
 ul {
-  position: absolute;
+  position: absolute;                     /* Relative Einbinden */
   text-align: left;
   left: 30%;
   top: 70%;
@@ -141,7 +142,7 @@ ul {
 }
 
 input {
-  position: absolute;
+  position: relative;
   left: 50%;
   top: 35%;
   width: 60%;
@@ -149,6 +150,7 @@ input {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   padding: 1em;
+  margin-top: 5em;
 }
 
 </style>
