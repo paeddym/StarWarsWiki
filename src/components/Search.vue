@@ -3,7 +3,7 @@
     <h1 id="mainHeader">The Star Wars WIKI</h1>
     <input type="text" v-model="searchQuery" placeholder="Search the WIKI">
     <div id="centerLoadingBar" v-if="isLoading">
-      Loading...
+      Fetching API data...
     </div>
     <ul v-else-if="showResults">
       <li v-for="result in filteredResults" :key="result.name">
@@ -112,7 +112,7 @@ export default {
 <style scoped>
 
 h1 {
-  font-size: 6em;
+  font-size: 13vh;
   padding-top: 0.5em;
 }
 
@@ -122,23 +122,25 @@ h1 {
 }
 
 ul {
-  position: absolute;                     /* Relative Einbinden */
+  padding-top: 3em;
+}
+
+li {
+  position: relative;                     
   text-align: left;
-  left: 30%;
-  top: 70%;
+  left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.3em;
 }
 
-#centerLoadingBar {
-  position: absolute;
-  left: 50%; 
-  top: 50%;
-  transform: translate(-50%, -50%);
+#centerLoadingBar {                   /* Text innendrinnen nicht Selektierbar? */
+  position: relative;
+  text-align: center;
+  font-size: 1em;
 }
 
 ::placeholder {
-  font-size: 2.5em;
+  font-size: 5vh;
 }
 
 input {
