@@ -140,7 +140,7 @@ li {
 }
 
 ::placeholder {
-  font-size: 5vh;
+  font-size: 1em;
 }
 
 input {

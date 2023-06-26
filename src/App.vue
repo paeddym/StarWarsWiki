@@ -11,7 +11,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/Vehicles">Vehicles</RouterLink>
         <RouterLink to="/Starships">Starships</RouterLink>
         <RouterLink to="/Species">Species</RouterLink>
-        <RouterLink to="/">Search</RouterLink>
+        <RouterLink to="/">To Search &#128269</RouterLink>
       </nav>
     </div>
   </header>
