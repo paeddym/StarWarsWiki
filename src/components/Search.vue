@@ -112,7 +112,7 @@ export default {
 <style scoped>
 
 h1 {
-  font-size: 13vh;
+  font-size: 5.8em;
   padding-top: 0.5em;
 }
 
@@ -141,6 +141,7 @@ li {
 
 ::placeholder {
   font-size: 1em;
+  color: white;
 }
 
 input {
@@ -149,10 +150,19 @@ input {
   top: 35%;
   width: 60%;
   height: 10%;
-  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   padding: 1em;
   margin-top: 5em;
+  color: white;
+  background-color: #4f4f4f;
+  border-color: #3f3f3f;
+  border-width: 2px;
+}
+
+input:focus {
+  outline-style: solid;
+  outline-color: yellow;
+  outline-width: 2px;
 }
 
 </style>

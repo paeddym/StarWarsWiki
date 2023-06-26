@@ -9,7 +9,7 @@
       <div class="pageTurner">
         <button @click="loadPreviousPeople">&#11164;</button>
         <p id="pageCount" >{{ currentPage }}</p>
-        <button @click="loadMorePeople">&#10148;</button>
+        <button @click="loadMorePeople">&#11166;</button>
       </div>
     </div>
   </template>

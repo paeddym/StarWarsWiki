@@ -7,9 +7,9 @@
       </li>
     </ul>
     <div class="pageTurner">
-      <button @click="loadPreviousVehicles">Previous Page</button>
+      <button @click="loadPreviousVehicles">&#11164;</button>
       <p id="pageCount" >{{ currentPage }}</p>
-      <button @click="loadMoreVehicles">Next Page</button>
+      <button @click="loadMoreVehicles">&#11166;</button>
     </div>
   </div>
 </template>
