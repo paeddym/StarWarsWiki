@@ -354,7 +354,7 @@ li {
   transform: translate(-50%, -50%);
   font-size: 1.3em;
 }
-.status {                   /* Text innendrinnen nicht Selektierbar? */
+.status {                   
   position: relative;
   text-align: center;
   font-size: 1em;

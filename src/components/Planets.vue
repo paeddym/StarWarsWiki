@@ -8,7 +8,7 @@
     </ul>
     <div class="pageTurner">
       <button @click="loadPreviousPlanets">&#11164;</button>
-      <p id="pageCount" >{{ currentPage }}</p>
+      <p>{{ currentPage }}</p>
       <button @click="loadMorePlanets">&#11166;</button>
     </div>
   </div>

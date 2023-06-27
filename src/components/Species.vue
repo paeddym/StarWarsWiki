@@ -8,7 +8,7 @@
     </ul>
     <div class="pageTurner">
       <button @click="loadPreviousSpecies">&#11164;</button>
-      <p id="pageCount" >{{ currentPage }}</p>
+      <p>{{ currentPage }}</p>
       <button @click="loadMoreSpecies">&#11166;</button>
     </div>
   </div>

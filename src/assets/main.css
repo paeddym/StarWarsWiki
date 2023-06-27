@@ -31,6 +31,7 @@ nav * {
   margin: 2%;
   text-decoration: none;
 }
+
 nav>*:hover {
   background-color: black;
   color: yellow;
@@ -49,12 +50,23 @@ nav>*:hover {
   margin-top: 2em;
   display: flex;
   justify-content: space-around;
-  font-size: 1.3em;
+  font-size: 1.5em;
+}
+
+.pageTurner > p {
+  color: yellow;
+}
+
+button {
+  background-color: yellow;
+  border-radius: 4px;
+  border-color: yellow;
+  padding: 1em 3em;
 }
 
 h1 {
   font-size: 4.5rem;
-  padding-top: 0.7em;      /* Abstand zu Nav */
+  padding-top: 0.7em;
   color: yellow;
   text-align: center;
 }
