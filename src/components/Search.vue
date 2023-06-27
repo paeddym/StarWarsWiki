@@ -10,7 +10,7 @@
           <ul>
             <li v-for="result in filteredResults" :key="result.name">
               <p id="result" @click="toggleDetails(result)">{{ result.name }}</p>
-              <div id="details" v-if="result.showDetails">
+              <div id="details" @click="toggleDetails(result)" v-if="result.showDetails">
                 <h3>{{ result.name }}</h3>
                 <p>&#x2022; Category: {{ result.type }}</p>
                 <template v-if="result.type === 'People'">
@@ -26,7 +26,6 @@
                 </template>
 
                 <template v-if="result.type === 'Starships'">
-                  <p>&#x2022; MLGT: {{ result.mlgt }}</p>
                   <p>&#x2022; Cargo Capacity: {{ result.cargo_capacity }}</p>
                   <p>&#x2022; Cost in Credits: {{ result.cost_in_credits }}</p>
                   <p>&#x2022; Crew: {{ result.crew }}</p>
@@ -62,7 +61,6 @@
                   <p>&#x2022; Rotation Period: {{ result.rotation_period }}</p>
                   <p>&#x2022; Surface Water: {{ result.surface_water }}</p>
                   <p>&#x2022; Terrain: {{ result.terrain }}</p>
-                  <p>&#x2022; Residents: {{ result.residents }}</p>    <!--wie species laden-->
                 </template>
 
                 <template v-if="result.type === 'Species'">
@@ -171,7 +169,6 @@ export default {
                 speciesName: [],
 
                 //Starships
-                mglt: (type === 'Starships') ? result.mglt : null,
                 hyperdrive_rating: (type === 'Starships') ? result.hyperdrive_rating : null,
                 starship_class: (type === 'Starships') ? result.starship_class : null,
                 
@@ -196,7 +193,6 @@ export default {
                 gravity: (type === 'Planets') ? result.gravity : null,
                 orbital_period: (type === 'Planets') ? result.orbital_period : null,
                 population: (type === 'Planets') ? result.population : null,
-                residents: (type === 'Planets') ? result.residents : null,              //wie species laden
                 rotation_period: (type === 'Planets') ? result.rotation_period : null,
                 surface_water: (type === 'Planets') ? result.surface_water : null,
                 terrain: (type === 'Planets') ? result.terrain : null,
@@ -401,6 +397,15 @@ input:focus {
 
 #details * {
   margin: 0.3em 1em;
+}
+
+#details:hover {
+  cursor: pointer;
+}
+
+#result {
+  position: absolute;
+  left: 0;
 }
 
 #result:hover {
