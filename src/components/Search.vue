@@ -2,82 +2,82 @@
   <div id="search">
     <h1>The Star Wars WIKI</h1>
     <div>
-      <input type="text" v-model="searchQuery" placeholder="Search">
+      <input type="text" v-model="searchQuery" placeholder="Search the WIKI">
       <div class="searchStatus" v-if="isLoading">
         Fetching API data...
       </div>
       <div v-else-if="showResults">
-          <ul>
-            <li v-for="result in filteredResults" :key="result.name">
-              <p id="result" @click="toggleDetails(result)">{{ result.name }}</p>
-              <div id="details" @click="toggleDetails(result)" v-if="result.showDetails">
-                <h3>{{ result.name }}</h3>
-                <p>&#x2022; Category: {{ result.type }}</p>
-                <template v-if="result.type === 'People'">
-                  <p>&#x2022; Birth Year: {{ result.birth_year }}</p>
-                  <p>&#x2022; Height: {{ result.height }}</p>
-                  <p>&#x2022; Mass: {{ result.mass }}</p>
-                  <p>&#x2022; Eye Color: {{ result.eye_color }}</p>
-                  <p>&#x2022; Hair Color: {{ result.hair_color }}</p>
-                  <p>&#x2022; Homeworld: {{ result.homeworldName }}</p>
-                  <p>&#x2022; Skin Color: {{ result.skin_color }}</p>
-                  <p>&#x2022; Species: {{ result.speciesName }}</p>
-                  <p>&#x2022; Gender: {{ result.gender }}</p>
-                </template>
+        <ul>
+          <li v-for="result in filteredResults" :key="result.name">
+            <p id="result" @click="toggleDetails(result)">{{ result.name }}</p>
+            <div id="details" @click="toggleDetails(result)" v-if="result.showDetails">
+              <h3>{{ result.name }}</h3>
+              <p>&#x2022; Category: {{ result.type }}</p>
+              <template v-if="result.type === 'People'">
+                <p>&#x2022; Birth Year: {{ result.birth_year }}</p>
+                <p>&#x2022; Height: {{ result.height }}</p>
+                <p>&#x2022; Mass: {{ result.mass }}</p>
+                <p>&#x2022; Eye Color: {{ result.eye_color }}</p>
+                <p>&#x2022; Hair Color: {{ result.hair_color }}</p>
+                <p>&#x2022; Homeworld: {{ result.homeworldName }}</p>
+                <p>&#x2022; Skin Color: {{ result.skin_color }}</p>
+                <p>&#x2022; Species: {{ result.speciesName }}</p>
+                <p>&#x2022; Gender: {{ result.gender }}</p>
+              </template>
 
-                <template v-if="result.type === 'Starships'">
-                  <p>&#x2022; Cargo Capacity: {{ result.cargo_capacity }}</p>
-                  <p>&#x2022; Cost in Credits: {{ result.cost_in_credits }}</p>
-                  <p>&#x2022; Crew: {{ result.crew }}</p>
-                  <p>&#x2022; Passengers: {{ result.passengers }}</p>
-                  <p>&#x2022; Hyperdrive Rating: {{ result.hyperdrive_rating }}</p>
-                  <p>&#x2022; Length: {{ result.length }}</p>
-                  <p>&#x2022; Manufacturer: {{ result.manufacturer }}</p>
-                  <p>&#x2022; Max Atmosphering Speed: {{ result.max_atmosphering_speed }}</p>
-                  <p>&#x2022; Model: {{ result.model }}</p>
-                  <p>&#x2022; Starship Class: {{ result.starship_class }}</p>
-                  <p>&#x2022; Consumables: {{ result.consumables }}</p>
-                </template>
+              <template v-if="result.type === 'Starships'">
+                <p>&#x2022; Cargo Capacity: {{ result.cargo_capacity }}</p>
+                <p>&#x2022; Cost in Credits: {{ result.cost_in_credits }}</p>
+                <p>&#x2022; Crew: {{ result.crew }}</p>
+                <p>&#x2022; Passengers: {{ result.passengers }}</p>
+                <p>&#x2022; Hyperdrive Rating: {{ result.hyperdrive_rating }}</p>
+                <p>&#x2022; Length: {{ result.length }}</p>
+                <p>&#x2022; Manufacturer: {{ result.manufacturer }}</p>
+                <p>&#x2022; Max Atmosphering Speed: {{ result.max_atmosphering_speed }}</p>
+                <p>&#x2022; Model: {{ result.model }}</p>
+                <p>&#x2022; Starship Class: {{ result.starship_class }}</p>
+                <p>&#x2022; Consumables: {{ result.consumables }}</p>
+              </template>
 
-                <template v-if="result.type === 'Vehicles'">
-                  <p>&#x2022; Cargo Capacity: {{ result.cargo_capacity }}</p>
-                  <p>&#x2022; Consumables: {{ result.consumables }}</p>
-                  <p>&#x2022; Cost in Credits: {{ result.cost_in_credits }}</p>
-                  <p>&#x2022; Crew: {{ result.crew }}</p>
-                  <p>&#x2022; Passengers: {{ result.passengers }}</p>
-                  <p>&#x2022; Length: {{ result.length }}</p>
-                  <p>&#x2022; Manufacturer: {{ result.manufacturer }}</p>
-                  <p>&#x2022; Max Atmosphering Speed: {{ result.max_atmosphering_speed }}</p>
-                  <p>&#x2022; Model: {{ result.model }}</p>
-                  <p>&#x2022; Vehicle Class: {{ result.vehicle_class }}</p>
-                </template>
+              <template v-if="result.type === 'Vehicles'">
+                <p>&#x2022; Cargo Capacity: {{ result.cargo_capacity }}</p>
+                <p>&#x2022; Consumables: {{ result.consumables }}</p>
+                <p>&#x2022; Cost in Credits: {{ result.cost_in_credits }}</p>
+                <p>&#x2022; Crew: {{ result.crew }}</p>
+                <p>&#x2022; Passengers: {{ result.passengers }}</p>
+                <p>&#x2022; Length: {{ result.length }}</p>
+                <p>&#x2022; Manufacturer: {{ result.manufacturer }}</p>
+                <p>&#x2022; Max Atmosphering Speed: {{ result.max_atmosphering_speed }}</p>
+                <p>&#x2022; Model: {{ result.model }}</p>
+                <p>&#x2022; Vehicle Class: {{ result.vehicle_class }}</p>
+              </template>
 
-                <template v-if="result.type === 'Planets'">
-                  <p>&#x2022; Climate: {{ result.climate }}</p>
-                  <p>&#x2022; Gravity: {{ result.gravity }}</p>
-                  <p>&#x2022; Diameter: {{ result.diameter }}</p>
-                  <p>&#x2022; Orbital Period: {{ result.orbital_period }}</p>
-                  <p>&#x2022; Population: {{ result.population }}</p>
-                  <p>&#x2022; Rotation Period: {{ result.rotation_period }}</p>
-                  <p>&#x2022; Surface Water: {{ result.surface_water }}</p>
-                  <p>&#x2022; Terrain: {{ result.terrain }}</p>
-                </template>
+              <template v-if="result.type === 'Planets'">
+                <p>&#x2022; Climate: {{ result.climate }}</p>
+                <p>&#x2022; Gravity: {{ result.gravity }}</p>
+                <p>&#x2022; Diameter: {{ result.diameter }}</p>
+                <p>&#x2022; Orbital Period: {{ result.orbital_period }}</p>
+                <p>&#x2022; Population: {{ result.population }}</p>
+                <p>&#x2022; Rotation Period: {{ result.rotation_period }}</p>
+                <p>&#x2022; Surface Water: {{ result.surface_water }}</p>
+                <p>&#x2022; Terrain: {{ result.terrain }}</p>
+              </template>
 
-                <template v-if="result.type === 'Species'">
-                  <p>&#x2022; Homeworld: {{ result.homeworldName }}</p>
-                  <p>&#x2022; Average Height: {{ result.average_height }}</p>
-                  <p>&#x2022; Average Lifespan: {{ result.average_lifespan }}</p>
-                  <p>&#x2022; Classification: {{ result.classification }}</p>
-                  <p>&#x2022; Designation: {{ result.designation }}</p>
-                  <p>&#x2022; Eye Colors: {{ result.eye_colors }}</p>
-                  <p>&#x2022; Hair Colors: {{ result.hair_colors }}</p>
-                  <p>&#x2022; Language: {{ result.language }}</p>
-                  <p>&#x2022; Skin Colors: {{ result.skin_colors }}</p>
-                  <p>&#x2022; People: {{ result.peopleName }}</p>
-                </template>
-              </div>
-            </li>
-          </ul>
+              <template v-if="result.type === 'Species'">
+                <p>&#x2022; Homeworld: {{ result.homeworldName }}</p>
+                <p>&#x2022; Average Height: {{ result.average_height }}</p>
+                <p>&#x2022; Average Lifespan: {{ result.average_lifespan }}</p>
+                <p>&#x2022; Classification: {{ result.classification }}</p>
+                <p>&#x2022; Designation: {{ result.designation }}</p>
+                <p>&#x2022; Eye Colors: {{ result.eye_colors }}</p>
+                <p>&#x2022; Hair Colors: {{ result.hair_colors }}</p>
+                <p>&#x2022; Language: {{ result.language }}</p>
+                <p>&#x2022; Skin Colors: {{ result.skin_colors }}</p>
+                <p>&#x2022; People: {{ result.peopleName }}</p>
+              </template>
+            </div>
+          </li>
+        </ul>
       </div>
       <p class="searchStatus" v-else>Ready to search!</p>
     </div>
@@ -171,10 +171,10 @@ export default {
                 //Starships
                 hyperdrive_rating: (type === 'Starships') ? result.hyperdrive_rating : null,
                 starship_class: (type === 'Starships') ? result.starship_class : null,
-                
+
                 //Vehicles
                 vehicle_class: (type === 'Vehicles') ? result.vehicle_class : null,
- 
+
                 //Starships & Vehicles
                 cargo_capacity: (type === 'Starships' || type === 'Vehicles') ? result.cargo_capacity : null,
                 consumables: (type === 'Starships' || type === 'Vehicles') ? result.consumables : null,
@@ -185,7 +185,7 @@ export default {
                 model: (type === 'Starships' || type === 'Vehicles') ? result.model : null,
                 passengers: (type === 'Starships' || type === 'Vehicles') ? result.passengers : null,                 //laden
                 cost_in_credits: (type === 'Starships' || type === 'Vehicles') ? result.cost_in_credits : null,
-                
+
 
                 //Planets
                 climate: (type === 'Planets') ? result.climate : null,
@@ -206,7 +206,7 @@ export default {
                 hair_colors: (type === 'Species') ? result.hair_colors : null,
                 language: (type === 'Species') ? result.language : null,
                 skin_colors: (type === 'Species') ? result.skin_colors : null,
-                people: (type === 'Species' ) ? result.people : null,                     //wie species laden
+                people: (type === 'Species') ? result.people : null,                     //wie species laden
                 PeopleName: null,
               };
             });
@@ -270,27 +270,27 @@ export default {
     },
 
     loadPeopleNames() {
-    const peopleUrls = this.results
-      .filter(result => result.type === 'Species' && result.people)
-      .flatMap(result => result.people);
+      const peopleUrls = this.results
+        .filter(result => result.type === 'Species' && result.people)
+        .flatMap(result => result.people);
 
-    const promises = peopleUrls.map(url => this.getResourceName(url));
+      const promises = peopleUrls.map(url => this.getResourceName(url));
 
-    Promise.all(promises)
-      .then(peopleNames => {
-        this.results.forEach(result => {
-          if (result.people) {
-            result.peopleName = result.people.map(url => {
-              const peopleIndex = peopleUrls.indexOf(url);
-              return peopleNames[peopleIndex];
-            });
-          }
+      Promise.all(promises)
+        .then(peopleNames => {
+          this.results.forEach(result => {
+            if (result.people) {
+              result.peopleName = result.people.map(url => {
+                const peopleIndex = peopleUrls.indexOf(url);
+                return peopleNames[peopleIndex];
+              });
+            }
+          });
+        })
+        .catch(error => {
+          console.error(error);
         });
-    })
-    .catch(error => {
-      console.error(error);
-    });
-},
+    },
 
 
     getResourceName(url) {
@@ -325,6 +325,17 @@ export default {
 
 <style scoped>
 
+#search {
+  width: 50%;
+  margin: auto;
+}
+
+.searchStatus {
+  position: relative;
+  font-size: 1em;
+  text-align: center;  
+}
+
 h1 {
   font-size: 5.8em;
   padding-top: 0.5em;
@@ -332,29 +343,6 @@ h1 {
 
 h3 {
   text-decoration: underline;
-}
-
-#search {
-  width: 50%;
-  margin: auto;
-}
-
-ul {
-  padding-top: 3em;
-}
-
-li {
-  position: relative;                     
-  text-align: left;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.3em;
-  margin: 0.5em 0em;
-}
-
-::placeholder {
-  font-size: 1em;
-  color: white;
 }
 
 input {
@@ -378,6 +366,35 @@ input:focus {
   outline-width: 2px;
 }
 
+::placeholder {
+  font-size: 1em;
+  color: white;
+}
+
+ul {
+  padding-top: 3em;
+}
+
+li {
+  position: relative;
+  left: 50%;
+  text-align: left;
+  transform: translate(-50%, -50%);
+  margin: 0.5em 0em;
+  font-size: 1.3em;
+}
+
+#result {
+  position: absolute;
+  left: 0;
+}
+
+#result:hover {
+  cursor: pointer;
+  transition: 0.3ms;
+  color: gray;
+}
+
 #details {
   position: absolute;
   right: 0;
@@ -396,17 +413,6 @@ input:focus {
 
 #details:hover {
   cursor: pointer;
-}
-
-#result {
-  position: absolute;
-  left: 0;
-}
-
-#result:hover {
-  color: gray;
-  cursor: pointer;
-  transition: 0.3ms;
 }
 
 </style>

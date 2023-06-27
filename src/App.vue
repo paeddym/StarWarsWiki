@@ -12,11 +12,14 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/Vehicles">Vehicles</RouterLink>
         <RouterLink to="/Starships">Starships</RouterLink>
         <RouterLink to="/Species">Species</RouterLink>
-        <RouterLink to="/">Search &#x1F50E;&#xFE0E;</RouterLink>
+        <RouterLink to="/">Search &#x1F50E;&#xFE0E;</RouterLink> <!-- Hätte eigentlich eine dropdown Suchleiste sein sollen,
+                                                                      implemetierung ist aber nicht gelungen, daher ist Suche
+                                                                      als Button zum Home geblieben -->
       </nav>
     </div>
   </header>
+
   <body>
-  <RouterView />
+    <RouterView />
   </body>
 </template>

@@ -1,13 +1,49 @@
+/* Responsivität nur begrenzt da, Webseite funktioniert besonders bei kleineren Bildschirmen schlecht */
+
 #app {
   background-image: url('/assets/background.jpg');
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
 * {
   margin: 0;
   font-weight: normal;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4.5rem;
+  color: yellow;
+  padding-top: 0.7em;
+  padding-bottom: 0.3em;
+}
+
+nav {
+  background-color: yellow;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;                 /* Damit die #search und #details die nav Leiste beim scrollen nicht überlappen  */
+  padding: 0.3em 1em;
+}
+
+nav * {
+  font-size: 1.3em;
+  text-decoration: none;
+  color: black;
+  background-color: #fcffdb;
+  border-radius: 5px;
+  margin: 2%;
+  padding: 0.03em 0.2em;
+}
+
+nav>*:hover {
+  background-color: black;
+  color: yellow;
+  transition: 0.3s;
+  border-radius: 5px;
 }
 
 body {
@@ -16,32 +52,6 @@ body {
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   color: white;
-}
-
-nav {
-  background-color: yellow;
-  text-align: center;
-  position: fixed;
-  width: 100%;
-  z-index: 10000;       /* Damit Suchleiste und #details nicht über die Nav Leiste gehen beim scrollen */
-  padding: 0.3em 1em;
-}
-
-nav * {
-  color: black;
-  font-size: 1.3em;
-  margin: 2%;
-  text-decoration: none;
-  padding: 0.03em 0.2em;
-  background-color: #fcffdb;
-  border-radius: 5px;
-}
-
-nav > *:hover {
-  background-color: black;
-  color: yellow;
-  transition: 0.3s;
-  border-radius: 5px;
 }
 
 .listOfEntries {
@@ -55,10 +65,41 @@ nav > *:hover {
   font-size: 1.4em;
 }
 
-.searchStatus {                   
-  position: relative;
-  text-align: center;
-  font-size: 1em;
+.pageTurner {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  width: 30%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-around;
+  margin: 1.5em auto;
+}
+
+.pageTurner>p {
+  font-size: 1.5em;
+  color: black;
+  background-color: yellow;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 8px;
+  padding: 0.1em 1em;
+}
+
+button {
+  font-size: 1.5em;
+  background-color: yellow;
+  border-color: yellow;
+  border-radius: 4px;
+  padding: 0.1em 0.8em;
+}
+
+button:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: black;
+  border-color: black;
+  color: yellow;
 }
 
 .categoryStatus {
@@ -66,53 +107,4 @@ nav > *:hover {
   bottom: 2%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.pageTurner {
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30%;
-  margin: auto;
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
-  display: flex;
-  justify-content: space-around;
-
-
-}
-
-.pageTurner > p {
-  color: black;
-  background-color: yellow;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 8px;
-  padding: 0.1em 1em;
-  font-size: 1.5em;
-}
-
-button {
-  background-color: yellow;
-  border-color: yellow;
-  border-radius: 4px;
-  padding: 0.1em 0.8em;
-  font-size: 1.5em;
-}
-
-button:hover {
-  cursor: pointer;
-  background-color: black;
-  border-color: black;
-  color: yellow;
-  transition: 0.2s;
-}
-
-h1 {
-  font-size: 4.5rem;
-  padding-top: 0.7em;
-  padding-bottom: 0.3em;
-  color: yellow;
-  text-align: center;
 }
