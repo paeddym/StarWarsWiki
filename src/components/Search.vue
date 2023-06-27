@@ -143,8 +143,8 @@ export default {
           this.isLoading = false;
         });
     },
-    search() {
-      // Perform any additional search functionality if needed
+    search(){
+      
     },
     searchResource(endpoint, type) {
       return axios.get(endpoint)
@@ -155,6 +155,7 @@ export default {
                 name: result.name,
                 type: type,
                 showDetails: false,
+                
                 //People
                 height: (type === 'People') ? result.height : null,
                 mass: (type === 'People') ? result.mass : null,
@@ -183,7 +184,7 @@ export default {
                 manufacturer: (type === 'Starships' || type === 'Vehicles') ? result.manufacturer : null,
                 max_atmosphering_speed: (type === 'Starships' || type === 'Vehicles') ? result.max_atmosphering_speed : null,
                 model: (type === 'Starships' || type === 'Vehicles') ? result.model : null,
-                passengers: (type === 'Starships' || type === 'Vehicles') ? result.passengers : null,                 //laden
+                passengers: (type === 'Starships' || type === 'Vehicles') ? result.passengers : null,
                 cost_in_credits: (type === 'Starships' || type === 'Vehicles') ? result.cost_in_credits : null,
 
 
@@ -206,7 +207,7 @@ export default {
                 hair_colors: (type === 'Species') ? result.hair_colors : null,
                 language: (type === 'Species') ? result.language : null,
                 skin_colors: (type === 'Species') ? result.skin_colors : null,
-                people: (type === 'Species') ? result.people : null,                     //wie species laden
+                people: (type === 'Species') ? result.people : null,
                 PeopleName: null,
               };
             });
@@ -308,8 +309,7 @@ export default {
       });
       return Array.from(uniqueMap.values());
     },
-    toggleDetails(result) {
-      // Close details for all other results
+    toggleDetails(result) {                     /* Click auf das #details Element funktioniert nicht optimal */
       this.results.forEach(res => {
         if (res !== result) {
           res.showDetails = false;
