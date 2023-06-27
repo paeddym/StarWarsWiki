@@ -7,10 +7,11 @@
       </li>
     </ul>
     <div class="pageTurner">
-      <button @click="loadPreviousVehicles">&#11164;</button>
+      <button @click="loadPreviousVehicles" :disabled="isLoading">&#11164;</button>
       <p>{{ currentPage }}</p>
-      <button @click="loadMoreVehicles">&#11166;</button>
+      <button @click="loadMoreVehicles" :disabled="isLoading">&#11166;</button>
     </div>
+    <div class="status" v-if="isLoading">Fetching API data...</div>
   </div>
 </template>
 
@@ -23,7 +24,8 @@ export default {
       vehicles: [],
       nextPage: null,
       previousPage: null,
-      currentPage: 1
+      currentPage: 1,
+      isLoading: false
     };
   },
   mounted() {
@@ -31,41 +33,50 @@ export default {
   },
   methods: {
     fetchVehicles() {
+      this.isLoading = true;
       axios.get('https://swapi.dev/api/vehicles/')
         .then(response => {
           this.vehicles = response.data.results;
           this.nextPage = response.data.next;
           this.previousPage = response.data.previous;
+          this.isLoading = false;
         })
         .catch(error => {
           console.error(error);
+          this.isLoading = false;
         });
     },
     loadMoreVehicles() {
-      if (this.nextPage) {
+      if (this.nextPage && !this.isLoading) {
+        this.isLoading = true;
         axios.get(this.nextPage)
           .then(response => {
             this.vehicles = response.data.results;
             this.nextPage = response.data.next;
             this.previousPage = response.data.previous;
-            this.currentPage ++;
+            this.currentPage++;
+            this.isLoading = false;
           })
           .catch(error => {
             console.error(error);
+            this.isLoading = false;
           });
       }
     },
     loadPreviousVehicles() {
-      if (this.previousPage) {
+      if (this.previousPage && !this.isLoading) {
+        this.isLoading = true;
         axios.get(this.previousPage)
           .then(response => {
             this.vehicles = response.data.results;
             this.nextPage = response.data.next;
             this.previousPage = response.data.previous;
-            this.currentPage --;
+            this.currentPage--;
+            this.isLoading = false;
           })
           .catch(error => {
             console.error(error);
+            this.isLoading = false;
           });
       }
     }

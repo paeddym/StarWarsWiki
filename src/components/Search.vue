@@ -351,11 +351,6 @@ li {
   font-size: 1.3em;
   margin: 0.5em 0em;
 }
-.status {                   
-  position: relative;
-  text-align: center;
-  font-size: 1em;
-}
 
 ::placeholder {
   font-size: 1em;

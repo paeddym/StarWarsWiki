@@ -1,6 +1,8 @@
 #app {
   width: 100%;
   background-image: url('/assets/background.jpg');
+  display: flex;
+  flex-direction: column;
 }
 
 *,
@@ -45,33 +47,64 @@ nav>*:hover {
 }
 
 .listOfEntries {
-  width: 50%;
+  width: 100%;
   margin: auto;
 }
 
-.pageTurner {
-  width: 50%;
+.listOfEntries li {
+  width: 25%;
   margin: auto;
-  margin-top: 2em;
+  font-size: 1.4em;
+}
+
+.status {                   
+  position: relative;
+  text-align: center;
+  font-size: 1em;
+}
+
+.pageTurner {
+  width: 30%;
+  margin: auto;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
   display: flex;
   justify-content: space-around;
-  font-size: 1.5em;
+
+
 }
 
 .pageTurner > p {
   color: yellow;
+  background-color: #4f4f4f;
+  border-width: 2px;
+  border-style: solid;
+  border-color: yellow;
+  border-radius: 8px;
+  padding: 0.1em 1em;
+  font-size: 1.5em;
 }
 
 button {
   background-color: yellow;
   border-radius: 4px;
   border-color: yellow;
-  padding: 1em 3em;
+  padding: 0.1em 0.8em;
+  font-size: 1.5em;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: black;
+  border-color: black;
+  color: yellow;
+  transition: 0.1s;
 }
 
 h1 {
   font-size: 4.5rem;
   padding-top: 0.7em;
+  padding-bottom: 0.3em;
   color: yellow;
   text-align: center;
 }

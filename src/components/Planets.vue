@@ -7,10 +7,11 @@
       </li>
     </ul>
     <div class="pageTurner">
-      <button @click="loadPreviousPlanets">&#11164;</button>
+      <button @click="loadPreviousPlanets" :disabled="isLoading">&#11164;</button>
       <p>{{ currentPage }}</p>
-      <button @click="loadMorePlanets">&#11166;</button>
+      <button @click="loadMorePlanets" :disabled="isLoading">&#11166;</button>
     </div>
+    <div class="status" v-if="isLoading">Fetching API data...</div>
   </div>
 </template>
 
@@ -23,7 +24,8 @@ export default {
       planets: [],
       nextPage: null,
       previousPage: null,
-      currentPage: 1
+      currentPage: 1,
+      isLoading: false
     };
   },
   mounted() {
@@ -31,45 +33,53 @@ export default {
   },
   methods: {
     fetchPlanets() {
+      this.isLoading = true;
       axios.get('https://swapi.dev/api/planets/')
         .then(response => {
           this.planets = response.data.results;
           this.nextPage = response.data.next;
           this.previousPage = response.data.previous;
+          this.isLoading = false;
         })
         .catch(error => {
           console.error(error);
+          this.isLoading = false;
         });
     },
     loadMorePlanets() {
-      if (this.nextPage) {
+      if (this.nextPage && !this.isLoading) {
+        this.isLoading = true;
         axios.get(this.nextPage)
           .then(response => {
             this.planets = response.data.results;
             this.nextPage = response.data.next;
             this.previousPage = response.data.previous;
-            this.currentPage ++;
+            this.currentPage++;
+            this.isLoading = false;
           })
           .catch(error => {
             console.error(error);
+            this.isLoading = false;
           });
       }
     },
     loadPreviousPlanets() {
-      if (this.previousPage) {
+      if (this.previousPage && !this.isLoading) {
+        this.isLoading = true;
         axios.get(this.previousPage)
           .then(response => {
             this.planets = response.data.results;
             this.nextPage = response.data.next;
             this.previousPage = response.data.previous;
-            this.currentPage --;
+            this.currentPage--;
+            this.isLoading = false;
           })
           .catch(error => {
             console.error(error);
+            this.isLoading = false;
           });
       }
     }
   }
 };
 </script>
-  
