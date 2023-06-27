@@ -30,6 +30,7 @@ nav * {
   font-size: 1.3em;
   margin: 2%;
   text-decoration: none;
+  padding: 0.03em 0.2em;
 }
 
 nav>*:hover {

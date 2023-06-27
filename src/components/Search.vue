@@ -12,70 +12,70 @@
               <p id="result" @click="toggleDetails(result)">{{ result.name }}</p>
               <div id="details" v-if="result.showDetails">
                 <h3>{{ result.name }}</h3>
-                <p>Category: {{ result.type }}</p>
+                <p>&#x2022; Category: {{ result.type }}</p>
                 <template v-if="result.type === 'People'">
-                  <p>Birth Year: {{ result.birth_year }}</p>
-                  <p>Height: {{ result.height }}</p>
-                  <p>Mass: {{ result.mass }}</p>
-                  <p>Eye Color: {{ result.eye_color }}</p>
-                  <p>Hair Color: {{ result.hair_color }}</p>
-                  <p>Homeworld: {{ result.homeworldName }}</p>
-                  <p>Skin Color: {{ result.skin_color }}</p>
-                  <p>Species: {{ result.speciesName }}</p>
-                  <p>Gender: {{ result.gender }}</p>
+                  <p>&#x2022; Birth Year: {{ result.birth_year }}</p>
+                  <p>&#x2022; Height: {{ result.height }}</p>
+                  <p>&#x2022; Mass: {{ result.mass }}</p>
+                  <p>&#x2022; Eye Color: {{ result.eye_color }}</p>
+                  <p>&#x2022; Hair Color: {{ result.hair_color }}</p>
+                  <p>&#x2022; Homeworld: {{ result.homeworldName }}</p>
+                  <p>&#x2022; Skin Color: {{ result.skin_color }}</p>
+                  <p>&#x2022; Species: {{ result.speciesName }}</p>
+                  <p>&#x2022; Gender: {{ result.gender }}</p>
                 </template>
 
                 <template v-if="result.type === 'Starships'">
-                  <p>MLGT: {{ result.mlgt }}</p>
-                  <p>Cargo Capacity: {{ result.cargo_capacity }}</p>
-                  <p>Cost in Credits: {{ result.cost_in_credits }}</p>
-                  <p>Crew: {{ result.crew }}</p>
-                  <p>Passengers: {{ result.passengers }}</p>
-                  <p>Hyperdrive Rating: {{ result.hyperdrive_rating }}</p>
-                  <p>Length: {{ result.length }}</p>
-                  <p>Manufacturer: {{ result.manufacturer }}</p>
-                  <p>Max Atmosphering Speed: {{ result.max_atmosphering_speed }}</p>
-                  <p>Model: {{ result.model }}</p>
-                  <p>Starship Class: {{ result.starship_class }}</p>
-                  <p>Consumables: {{ result.consumables }}</p>
+                  <p>&#x2022; MLGT: {{ result.mlgt }}</p>
+                  <p>&#x2022; Cargo Capacity: {{ result.cargo_capacity }}</p>
+                  <p>&#x2022; Cost in Credits: {{ result.cost_in_credits }}</p>
+                  <p>&#x2022; Crew: {{ result.crew }}</p>
+                  <p>&#x2022; Passengers: {{ result.passengers }}</p>
+                  <p>&#x2022; Hyperdrive Rating: {{ result.hyperdrive_rating }}</p>
+                  <p>&#x2022; Length: {{ result.length }}</p>
+                  <p>&#x2022; Manufacturer: {{ result.manufacturer }}</p>
+                  <p>&#x2022; Max Atmosphering Speed: {{ result.max_atmosphering_speed }}</p>
+                  <p>&#x2022; Model: {{ result.model }}</p>
+                  <p>&#x2022; Starship Class: {{ result.starship_class }}</p>
+                  <p>&#x2022; Consumables: {{ result.consumables }}</p>
                 </template>
 
                 <template v-if="result.type === 'Vehicles'">
-                  <p>Cargo Capacity: {{ result.cargo_capacity }}</p>
-                  <p>Consumables: {{ result.consumables }}</p>
-                  <p>Cost in Credits: {{ result.cost_in_credits }}</p>
-                  <p>Crew: {{ result.crew }}</p>
-                  <p>Passengers: {{ result.passengers }}</p>
-                  <p>Length: {{ result.length }}</p>
-                  <p>Manufacturer: {{ result.manufacturer }}</p>
-                  <p>Max Atmosphering Speed: {{ result.max_atmosphering_speed }}</p>
-                  <p>Model: {{ result.model }}</p>
-                  <p>Vehicle Class: {{ result.vehicle_class }}</p>
+                  <p>&#x2022; Cargo Capacity: {{ result.cargo_capacity }}</p>
+                  <p>&#x2022; Consumables: {{ result.consumables }}</p>
+                  <p>&#x2022; Cost in Credits: {{ result.cost_in_credits }}</p>
+                  <p>&#x2022; Crew: {{ result.crew }}</p>
+                  <p>&#x2022; Passengers: {{ result.passengers }}</p>
+                  <p>&#x2022; Length: {{ result.length }}</p>
+                  <p>&#x2022; Manufacturer: {{ result.manufacturer }}</p>
+                  <p>&#x2022; Max Atmosphering Speed: {{ result.max_atmosphering_speed }}</p>
+                  <p>&#x2022; Model: {{ result.model }}</p>
+                  <p>&#x2022; Vehicle Class: {{ result.vehicle_class }}</p>
                 </template>
 
                 <template v-if="result.type === 'Planets'">
-                  <p>Climate: {{ result.climate }}</p>
-                  <p>Gravity: {{ result.gravity }}</p>
-                  <p>Diameter: {{ result.diameter }}</p>
-                  <p>Orbital Period: {{ result.orbital_period }}</p>
-                  <p>Population: {{ result.population }}</p>
-                  <p>Rotation Period: {{ result.rotation_period }}</p>
-                  <p>Surface Water: {{ result.surface_water }}</p>
-                  <p>Terrain: {{ result.terrain }}</p>
-                  <p>Residents: {{ result.residents }}</p>    <!--wie species laden-->
+                  <p>&#x2022; Climate: {{ result.climate }}</p>
+                  <p>&#x2022; Gravity: {{ result.gravity }}</p>
+                  <p>&#x2022; Diameter: {{ result.diameter }}</p>
+                  <p>&#x2022; Orbital Period: {{ result.orbital_period }}</p>
+                  <p>&#x2022; Population: {{ result.population }}</p>
+                  <p>&#x2022; Rotation Period: {{ result.rotation_period }}</p>
+                  <p>&#x2022; Surface Water: {{ result.surface_water }}</p>
+                  <p>&#x2022; Terrain: {{ result.terrain }}</p>
+                  <p>&#x2022; Residents: {{ result.residents }}</p>    <!--wie species laden-->
                 </template>
 
                 <template v-if="result.type === 'Species'">
-                  <p>Homeworld: {{ result.homeworldName }}</p>
-                  <p>Average Height: {{ result.average_height }}</p>
-                  <p>Average Lifespan: {{ result.average_lifespan }}</p>
-                  <p>Classification: {{ result.classification }}</p>
-                  <p>Designation: {{ result.designation }}</p>
-                  <p>Eye Colors: {{ result.eye_colors }}</p>
-                  <p>Hair Colors: {{ result.hair_colors }}</p>
-                  <p>Language: {{ result.language }}</p>
-                  <p>Skin Colors: {{ result.skin_colors }}</p>
-                  <p>People: {{ result.peopleName }}</p>          <!--wie species laden-->
+                  <p>&#x2022; Homeworld: {{ result.homeworldName }}</p>
+                  <p>&#x2022; Average Height: {{ result.average_height }}</p>
+                  <p>&#x2022; Average Lifespan: {{ result.average_lifespan }}</p>
+                  <p>&#x2022; Classification: {{ result.classification }}</p>
+                  <p>&#x2022; Designation: {{ result.designation }}</p>
+                  <p>&#x2022; Eye Colors: {{ result.eye_colors }}</p>
+                  <p>&#x2022; Hair Colors: {{ result.hair_colors }}</p>
+                  <p>&#x2022; Language: {{ result.language }}</p>
+                  <p>&#x2022; Skin Colors: {{ result.skin_colors }}</p>
+                  <p>&#x2022; People: {{ result.peopleName }}</p>          <!--wie species laden-->
                 </template>
               </div>
             </li>
@@ -353,6 +353,7 @@ li {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.3em;
+  margin: 0.5em 0em;
 }
 .status {                   
   position: relative;
@@ -387,8 +388,19 @@ input:focus {
 }
 
 #details {
-  float: right;
+  position: absolute;
+  right: 0;
+  top: 0%;
+  max-width: 50%;
   background-color: #4f4f4f;
+  border-style: solid;
+  border-width: 2px;
+  border-color: yellow;
+  border-radius: 8px;
+}
+
+#details * {
+  margin: 0.3em 1em;
 }
 
 #result:hover {
