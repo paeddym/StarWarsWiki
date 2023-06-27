@@ -21,7 +21,7 @@
                 <p>&#x2022; Hair Color: {{ result.hair_color }}</p>
                 <p>&#x2022; Homeworld: {{ result.homeworldName }}</p>
                 <p>&#x2022; Skin Color: {{ result.skin_color }}</p>
-                <p>&#x2022; Species: {{ result.speciesName }}</p>
+                <p>&#x2022; Species: {{ result.speciesName }}</p>       <!-- In der API fehlt "Human" als Species, daher wird [] zurückgegeben -->
                 <p>&#x2022; Gender: {{ result.gender }}</p>
               </template>
 
@@ -166,7 +166,6 @@ export default {
                 homeworld: (type === 'People' || type === 'Species') ? result.homeworld : null,
                 skin_color: (type === 'People') ? result.skin_color : null,
                 species: (type === 'People') ? result.species : null,
-                homeworldName: null,
                 speciesName: [],
 
                 //Starships
@@ -208,7 +207,6 @@ export default {
                 language: (type === 'Species') ? result.language : null,
                 skin_colors: (type === 'Species') ? result.skin_colors : null,
                 people: (type === 'Species') ? result.people : null,
-                PeopleName: null,
               };
             });
 
