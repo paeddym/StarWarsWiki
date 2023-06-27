@@ -3,7 +3,7 @@
     <h1>The Star Wars WIKI</h1>
     <div>
       <input type="text" v-model="searchQuery" placeholder="Search">
-      <div class="status" v-if="isLoading">
+      <div class="searchStatus" v-if="isLoading">
         Fetching API data...
       </div>
       <div v-else-if="showResults">
@@ -73,13 +73,13 @@
                   <p>&#x2022; Hair Colors: {{ result.hair_colors }}</p>
                   <p>&#x2022; Language: {{ result.language }}</p>
                   <p>&#x2022; Skin Colors: {{ result.skin_colors }}</p>
-                  <p>&#x2022; People: {{ result.peopleName }}</p>          <!--wie species laden-->
+                  <p>&#x2022; People: {{ result.peopleName }}</p>
                 </template>
               </div>
             </li>
           </ul>
       </div>
-      <p class="status" v-else>Ready to search!</p>
+      <p class="searchStatus" v-else>Ready to search!</p>
     </div>
   </div>
 </template>
@@ -382,7 +382,7 @@ input:focus {
   position: absolute;
   right: 0;
   top: 0%;
-  max-width: 50%;
+  width: 50%;
   background-color: #4f4f4f;
   border-style: solid;
   border-width: 2px;

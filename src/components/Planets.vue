@@ -11,7 +11,7 @@
       <p>{{ currentPage }}</p>
       <button @click="loadMorePlanets" :disabled="isLoading">&#11166;</button>
     </div>
-    <div class="status" v-if="isLoading">Fetching API data...</div>
+    <div class="categoryStatus" v-if="isLoading">Fetching API data...</div>
   </div>
 </template>
 
